@@ -53,7 +53,7 @@ header {
     padding: 12px 0;
     gap: 16px;
     flex-wrap: wrap;
-    /* allow stacking on small screens */
+    /* small screens can wrap */
 }
 
 .brand {
@@ -97,7 +97,7 @@ nav {
 nav a {
     padding: 8px 10px;
     border-radius: 8px;
-    color: var(--text);
+    color: #1f2937;
 }
 
 nav a:hover {
@@ -142,7 +142,7 @@ nav a:hover {
     text-decoration: none;
 }
 
-/* Force single-line header on larger screens */
+/* Force single line header on desktop */
 @media (min-width: 1024px) {
     .topbar {
         flex-wrap: nowrap;
@@ -179,6 +179,38 @@ nav a:hover {
 
     .cta-row .btn {
         padding: 8px 12px;
+    }
+}
+
+/* Hide nav on small screens, keep compact header */
+@media (max-width: 640px) {
+    nav {
+        display: none !important;
+    }
+
+    .topbar {
+        padding: 8px 0;
+        gap: 8px;
+    }
+
+    .brand small {
+        display: none;
+    }
+
+    .cta-row .btn.secondary {
+        display: none;
+    }
+
+    /* keep only WhatsApp in header */
+    .cta-row .btn {
+        padding: 8px 10px;
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 400px) {
+    .brand h1 {
+        font-size: 15px;
     }
 }
 
@@ -292,6 +324,14 @@ section {
     border-radius: 8px;
 }
 
+.reviews .quote p {
+    margin: 0 0 6px;
+}
+
+.reviews .quote small {
+    color: #4b5563;
+}
+
 /* FAQ */
 .faq summary {
     font-weight: 600;
@@ -374,8 +414,8 @@ footer a {
     display: none;
 }
 
-/* Small-screen usability tweaks */
-@media (max-width: 480px) {
+/* Small-screen layout tweaks */
+@media (max-width: 720px) {
     .hero-inner {
         grid-template-columns: 1fr;
     }
